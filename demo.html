@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="count"></div>
+	<p>1</p>
+	<p>3</p>
+	<script src='lib/jquery3.1.js'></script>
+	<script type="text/javascript">
+		// let count=document.getElementById('count');
+		
+		// function random(){
+		// 	count.innerHTML=Math.floor(Math.random()*10);
+		// }
+		// random();
+		// setInterval(random,1000);
+
+		/******type one******/
+		const a=1;
+		// const a=3;//如果重新命名就会报错
+		console.log(a);
+
+		/******************/
+		let count=2;
+		count++;
+		console.log(count);
+
+
+		/*********************/
+		// 使用字面量的方式来定义对象或着数组
+		const object={};
+		const array=[];
+		console.log(typeof object);//typeof 有六种
+		console.log(array instanceof Array);
+		for(let i=0;i<9;i++){
+			array.unshift(i);
+		}
+		console.log(array);
+
+		//这种拷贝的方法应该是一种浅拷贝，对对象
+		const arraycopy=[...array];
+		console.log(arraycopy);
+		array[0]=10;
+		console.log(arraycopy)
+		console.log(array)
+		arraycopy[0]=123;
+		console.log(arraycopy)
+		console.log(array)
+		/************************/
+		const counter={
+			value:1,
+			addValue(value){
+				return counter.value+value;
+			}
+		}
+		console.log(counter.addValue(10));
+
+
+		/***************/
+		const myProperty='Propertyvalue';
+		const obj={
+			myProperty,//这个逗号得保留  为什么？？？有什么差别？？？主要是为了后期的维护，不至于忘了添加逗号
+		}
+		console.log(typeof obj.myProperty);
+
+
+		/*************/
+		const badCase={//const声明的对象不可以给它重新赋值，但是可以给他添加属性
+			foo:3,
+			bar:4,
+			'data-src':5,
+		}
+		console.log(badCase)
+		badCase.name='xiaolibin';
+		console.log(badCase);
+
+		/**********************/
+		const ps=document.querySelectorAll('p');
+		const nodes=Array.from(ps);//使用Array.from 转化类数组对象。
+		console.log(ps);
+		console.log(nodes);
+
+
+		/**********************/
+		let mapA=[1,2,3].map((x) =>{
+			const y=x+1;
+			return x*y;
+		});
+		console.log(mapA)
+		console.log([1,2,3].map(x=>x+1))
+		/*******************/
+		const arr=[1,2,3,4];
+		const [first,second]=arr;
+		console.log(first+"  "+second);
+
+		/*********************/
+		function sayHi(name){
+			return `How are you, ${name}?`;//注意这里是反的引号
+		}
+		console.log(sayHi('xioalb'));
+
+		/***************/
+		let a1=[];
+		for (let i=0;i<10;i++){
+			a1[i]=function(){
+				console.log(i)
+			}
+		}
+		a1[6]();
+		/***************************************/
+		let str1=" xiao l b  ";
+		console.log('str1='+$.trim(str1));
+	</script>
+</body>
+</html>
